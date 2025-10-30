@@ -1,0 +1,264 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: #cfd8dc;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  position: relative;
+  max-width: 440px;
+}
+
+input[type="text"],
+input[type="email"],
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+small {
+  position: absolute;
+  right: 10px;
+  bottom: -18px;
+  font-size: 0.75rem;
+  color: #bbb;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+}
+
+.checkbox-group {
+  margin: 20px 0;
+}
+
+.checkbox-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checkbox-item {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #00c6ff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0072ff;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.success-msg {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+
+.error-msg {
+  background-color: rgba(255, 87, 87, 0.2);
+}
+
+/* Loader animation */
+.loader {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+  margin-top: 20px;
+  margin: auto;
+  display: block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 500px) {
+  .form-container {
+    padding: 20px;
+  }
+}
+
+/* === Event Checkbox Grid Styles === */
+.checkbox-group {
+  margin: 20px 0;
+}
+
+.checkbox-group label {
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Grid layout for event checkboxes */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  
+  
+}
+
+.checkbox-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 25px;
+  width: 120px;
+}
+
+/* Hide the default checkbox */
+.checkbox-card input {
+  display: none;
+}
+
+/* Label text styling */
+.checkbox-card span {
+  color: #fff;
+  font-size: 1.0rem;
+  font-weight: 500;
+}
+
+/* Hover animation */
+/* === Tooltip Hover Effect === */
+.checkbox-card {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  width: 180px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.checkbox-card:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Optional tooltip arrow */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+}
+
+/* Hover visual feedback on card */
+.checkbox-card:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  border: 2px solid #00eaff;
+}
+
+
+/* When checkbox is checked */
+.checkbox-card input:checked + span {
+  color: #00eaff;
+  font-weight: 600;
+  text-shadow: 0 0 6px #00eaff;
+  transition: 0.3s;
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .checkbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
