@@ -14,10 +14,7 @@ const eventOptions = [
   { name: "Fastest Typing Challenge", desc: "Prove your coding speed and accuracy." },
   { name: "Pseudo Code War", desc: "Write logic, not code – and win the challenge!" },
   { name: "Project Showcase", desc: "Display your final-year or passion projects." },
-  { name: "AI Animated Video Making", desc: "Create videos using AI tools creatively." },
   { name: "Memory Master", desc: "Challenge your mind with memory-based games." },
-  { name: "Open Mic", desc: "Perform music, poetry, or stand-up comedy." },
-  { name: "Mobile Gaming", desc: "Compete in popular mobile e-sports titles." },
   { name: "Virtual Escape Room", desc: "Solve mysteries and escape before time runs out!" }
 ];
 
