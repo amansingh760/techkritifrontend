@@ -81,9 +81,16 @@ function App() {
 // payment handle
 
 const handlePayment = async () => {
+   let amountInPaise = 10000;
+
+  if (formData.college === "KGI") {
+    amountInPaise = 10000;
+  } else {
+    amountInPaise = 20000;
+  }
   const options = {
     key: 'rzp_test_R621lPtd7qF7HB',
-    amount: 10000, // ₹100 in paise
+    amount: amountInPaise, // ₹100 in paise
     currency: 'INR',
     name: 'Techkriti 2.0',
     description: 'Event Registration Fee',
@@ -243,10 +250,77 @@ const handlePayment = async () => {
             {errors.year && <span className="error">{errors.year}</span>}
           </div>
 
+
+
           <div className="input-group">
-            <input name="college" placeholder="College Name" onChange={handleChange} required />
+          <select
+            name="collegeChoice"
+            value={formData.collegeChoice}
+            onChange={(e) => {
+              const choice = e.target.value;
+              setFormData({
+                ...formData,
+                collegeChoice: choice,
+                college: choice === "KGI" ? "KGI" : ""
+              });
+            }}
+            required
+          >
+            <option value="" disabled hidden>College Name</option>
+            <option value="KGI">KGI</option>
+            <option value="Others">Others</option>
+          </select>
+          {errors.college && <span className="error">{errors.college}</span>}
+          </div>
+
+        {formData.collegeChoice === "Others" && (
+          <div className="input-group">
+            <input
+              className="input-group"
+              placeholder="Enter your college name"
+              value={formData.college}
+              onChange={(e) =>
+                setFormData({ ...formData, college: e.target.value })
+              }
+              required
+            />
+          </div>
+        )}
+
+
+                   {/* <div className="input-group">
+           <label htmlFor="college">College</label>
+            <select
+              name="college"
+              value={formData.college}
+              onChange={handleChange}
+              required
+            >
+              <option value="" disable hidden>-- Select College --</option>
+              <option value="KGI">KGI</option>
+              <option value="Others">Others</option>
+            </select>
             {errors.college && <span className="error">{errors.college}</span>}
           </div>
+
+          {formData.college === "Others" && (
+            <div className="input-group">
+              <input
+                name="otherCollege"
+                placeholder="Enter your college name"
+                onChange={(e) =>
+                  setFormData({ ...formData, college: e.target.value })
+                }
+                required
+              />
+            </div>
+          )}*/}
+
+
+          {/*<div className="input-group">
+            <input name="college" placeholder="College Name" onChange={handleChange} required />
+            {errors.college && <span className="error">{errors.college}</span>}
+          </div>*/}
 
           <div className="input-group">
             <input name="department" placeholder="Department" onChange={handleChange} required />

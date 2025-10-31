@@ -48,6 +48,18 @@ input {
   font-size: 1rem;
 }
 
+
+.input-group select,
+.input-group input.same-size-input {
+  width: 105%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
+
 small {
   position: absolute;
   right: 10px;
