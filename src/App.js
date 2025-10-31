@@ -14,10 +14,7 @@ const eventOptions = [
   { name: "Fastest Typing Challenge", desc: "Prove your coding speed and accuracy." },
   { name: "Pseudo Code War", desc: "Write logic, not code – and win the challenge!" },
   { name: "Project Showcase", desc: "Display your final-year or passion projects." },
-  { name: "AI Animated Video Making", desc: "Create videos using AI tools creatively." },
   { name: "Memory Master", desc: "Challenge your mind with memory-based games." },
-  { name: "Open Mic", desc: "Perform music, poetry, or stand-up comedy." },
-  { name: "Mobile Gaming", desc: "Compete in popular mobile e-sports titles." },
   { name: "Virtual Escape Room", desc: "Solve mysteries and escape before time runs out!" }
 ];
 
@@ -107,7 +104,7 @@ const handlePayment = async () => {
         });
         formPayload.append('utr', paymentId);
 
-        const res = await fetch('http://localhost:3000/register', {
+        const res = await fetch('https://techkritibackend1.onrender.com/register', {
           method: 'POST',
           body: formPayload
         });
@@ -185,7 +182,7 @@ const handlePayment = async () => {
       formPayload.append('utr', utr);
       // if (uploadedFile) formPayload.append('image', uploadedFile);
 
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch('https://techkritibackend1.onrender.com//register', {
         method: 'POST',
         body: formPayload
       });
