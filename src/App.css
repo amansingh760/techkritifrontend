@@ -267,8 +267,9 @@ button:disabled {
   .mainlogo {
   text-align: center;
   position: relative;
+  justify-content: center;
   z-index: 2;           /* ensures it's above particles */
-  margin-left: 20vw ;    /* centers and adds spacing */
+  margin-left: 30vw ;    /* centers and adds spacing */
 }
 
   .mainlogo img {
