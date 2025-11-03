@@ -266,8 +266,8 @@ const handlePayment = async () => {
             }}
             required
           >
-            <option value="" disabled hidden>College Name</option>
-            <option value="KGI">KGI</option>
+            <option value="" disabled hidden>-- Select College --</option>
+            <option value="KGI">Kashi Group of Instituion</option>
             <option value="Others">Others</option>
           </select>
           {errors.college && <span className="error">{errors.college}</span>}
