@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import emailjs from '@emailjs/browser';
-// import ParticleBackground from './ParticleBackground.jsx';
+import ParticleBackground from './ParticleBackground.jsx';
 
 const eventOptions = [
   { name: "Hackathon", desc: "Build innovative solutions in 24 hours!" },
@@ -226,6 +226,7 @@ const handlePayment = async () => {
   return (
    
     <div className="App">
+      <ParticleBackground />
       <div className="form-container">
         {/* <h1>🎉 Tech Event Registration</h1> */}
         {/* <img src="logo2.png" alt="Techkriti Logo" className="logo" /> */}
@@ -375,7 +376,7 @@ const handlePayment = async () => {
           {errors.events && <span className="error">{errors.events}</span>}
 
        
-            <button  type="button" /*onClick={handleProceed }*/ disabled={loading}>
+            <button  type="button" /*onClick={handleProceed} */ disabled={loading}>
               {loading ? <span className="loader"></span> : "➡️ Proceed"}
             </button>
           

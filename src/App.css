@@ -170,19 +170,23 @@ small {
 button {
   width: 100%;
   padding: 14px;
-  border: none;
+  /* border: 2px solid white; */
   border-radius: 8px;
   background: #00c6ff;
-  color: white;
+  /* color: white; */
   font-size: 1rem;
   margin-top: 15px;
   cursor: pointer;
-  transition: 0.3s;
+  /* transition: background 0.3s ease, transform 0.3s ease; */
+  /* box-shadow: 0 0 10px rgba(0, 198, 255, 0.6); */
+  position: relative;
+  z-index: 2;
 }
 
 button:hover {
   background: #1138d6;
   transform: scale(1.05);
+  /* border-color: #00eaff; */
 }
 
 button:disabled {
@@ -261,16 +265,31 @@ button:disabled {
   }
 
   .mainlogo {
-    margin-left: 0;
-    transform: none;
-    text-align: center;
-  }
+  text-align: center;
+  position: relative;
+  z-index: 2;           /* ensures it's above particles */
+  margin-left: 20vw ;    /* centers and adds spacing */
+}
 
   .mainlogo img {
     width: 80vw;
-    max-width: 300px;
     height: auto;
     border-radius: 8px;
   }
-  
+  .checkbox-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  height: 25px;
+  width: 30vw;
+  position: relative;
+}
 }
