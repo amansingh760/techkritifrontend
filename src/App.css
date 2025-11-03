@@ -1,6 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: linear-gradient(135deg, #893939d0, #000000);
   color: #fff;
   margin: 0;
   padding: 0;
@@ -100,12 +100,13 @@ button {
   background: #00c6ff;
   color: white;
   font-size: 1rem;
+  margin-top: 15px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 button:hover {
-  background: #0072ff;
+  background: #1138d6;
   transform: scale(1.05);
 }
 
@@ -272,5 +273,22 @@ button:disabled {
   .checkbox-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+
+.mainlogo {
+         /* fixes it at a specific position on screen */
+ 
+  transform: translateX(-50%);/* adjust for perfect centering */
+  text-align: center;         /* center the image inside */
+  z-index: 200;               /* keep it above other elements */
+  align-items: center;
+  margin-left: 220px;
+}
+
+.mainlogo img {
+  width: 300px;               /* adjust as needed */
+  height: auto;
+  border-radius: 8px;         /* optional: smooth corners */
 }
 

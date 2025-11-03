@@ -226,7 +226,9 @@ const handlePayment = async () => {
   return (
     <div className="App">
       <div className="form-container">
-        <h1>🎉 Tech Event Registration</h1>
+        {/* <h1>🎉 Tech Event Registration</h1> */}
+        {/* <img src="logo2.png" alt="Techkriti Logo" className="logo" /> */}
+        <div className='mainlogo'><img src="logo2.png" alt="Techkriti Logo" /></div>
         <p className="subtitle">Join the most exciting tech fest of the year!</p>
 
         <form onSubmit={handleSubmit}>
@@ -372,7 +374,7 @@ const handlePayment = async () => {
           {errors.events && <span className="error">{errors.events}</span>}
 
        
-            <button type="button" onClick={handleProceed} disabled={loading}>
+            <button  type="button" /*onClick={handleProceed}*/ disabled={loading}>
               {loading ? <span className="loader"></span> : "➡️ Proceed"}
             </button>
           
