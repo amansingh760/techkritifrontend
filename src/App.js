@@ -89,7 +89,7 @@ const handlePayment = async () => {
     amountInPaise = 20000;
   }
   const options = {
-    key: 'rzp_test_R621lPtd7qF7HB',
+    key: 'rzp_live_Rb9HzbTHGhigs9',
     amount: amountInPaise, // ₹100 in paise
     currency: 'INR',
     name: 'Techkriti 2.0',
@@ -266,7 +266,7 @@ const handlePayment = async () => {
             }}
             required
           >
-            <option value="" disabled hidden>-- Select College --</option>
+            <option  >-- Select College --</option>
             <option value="KGI">Kashi Group of Instituion</option>
             <option value="Others">Others</option>
           </select>
@@ -320,12 +320,40 @@ const handlePayment = async () => {
           {/*<div className="input-group">
             <input name="college" placeholder="College Name" onChange={handleChange} required />
             {errors.college && <span className="error">{errors.college}</span>}
-          </div>*/}
+          </div>
 
           <div className="input-group">
             <input name="department" placeholder="Department" onChange={handleChange} required />
             {errors.department && <span className="error">{errors.department}</span>}
           </div>
+          */}
+
+         <div className="input-group">
+            <select
+              name="department"
+              value={formData.department}
+              onChange={handleChange}
+              required
+            >
+              <option >-- Select Course--</option>
+              <option value="B.tech">B.tech</option>
+              <option value="BCA">BCA</option>
+              <option value="MCA">MCA</option>
+              <option value="POLYTECHNIC">POLYTECHNIC</option>
+              <option value="BBA">BBA</option>
+              <option value="MBA">MBA</option>
+              <option value="B.COM">B.COM</option>
+              <option value="M.COM">M.COM</option>
+              <option value="B pharma">B pharma</option>
+              <option value="M pharma">M pharma</option>
+              <option value="BA">BA</option>
+              <option value="B.sc">B.sc</option>
+              <option value="M.sc">M.sc</option>
+              <option value="Others">Others</option>
+            </select>
+            {errors.department && <span className="error">{errors.department}</span>}
+            </div>
+
 
           <div className="checkbox-grid">
             {eventOptions.map(event => (
