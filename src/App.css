@@ -1,3 +1,4 @@
+/* === Base Styles === */
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #893939d0, #000000);
@@ -17,20 +18,18 @@ body {
   text-align: center;
 }
 
-
 h1 {
-  text-align: center;
   margin-bottom: 5px;
   text-align: center;
 }
 
 .subtitle {
-  text-align: center;
   color: #cfd8dc;
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
 
+/* === Input Styles === */
 .input-group {
   margin-bottom: 15px;
   position: relative;
@@ -39,27 +38,25 @@ h1 {
 
 input[type="text"],
 input[type="email"],
-input {
-  width: 100%;
+input,
+.input-group select,
+.input-group input.same-size-input {
+  width: 105%;
   padding: 12px;
   border-radius: 8px;
   border: none;
   outline: none;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
-
-.input-group select,
-.input-group input.same-size-input {
-  width: 105%;
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 4px;
+.input-group select {
   border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
 }
 
-
-
+/* === Error and Helper Text === */
 small {
   position: absolute;
   right: 10px;
@@ -73,94 +70,7 @@ small {
   font-size: 0.8rem;
 }
 
-.checkbox-group {
-  margin: 20px 0;
-}
-
-.checkbox-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.checkbox-item {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 5px 10px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: #00c6ff;
-  color: white;
-  font-size: 1rem;
-  margin-top: 15px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #1138d6;
-  transform: scale(1.05);
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.message {
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.success-msg {
-  background-color: rgba(76, 175, 80, 0.2);
-}
-
-.error-msg {
-  background-color: rgba(255, 87, 87, 0.2);
-}
-
-/* Loader animation */
-.loader {
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid white;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: spin 0.8s linear infinite;
-  margin-top: 20px;
-  margin: auto;
-  display: block;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@media (max-width: 500px) {
-  .form-container {
-    padding: 20px;
-  }
-}
-
-/* === Event Checkbox Grid Styles === */
+/* === Checkbox Styles === */
 .checkbox-group {
   margin: 20px 0;
 }
@@ -172,13 +82,10 @@ button:disabled {
   margin-bottom: 10px;
 }
 
-/* Grid layout for event checkboxes */
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 10px;
-  
-  
 }
 
 .checkbox-card {
@@ -195,26 +102,20 @@ button:disabled {
   gap: 10px;
   height: 25px;
   width: 120px;
+  position: relative;
 }
 
-/* Hide the default checkbox */
 .checkbox-card input {
   display: none;
 }
 
-/* Label text styling */
 .checkbox-card span {
   color: #fff;
-  font-size: 1.0rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
-/* Hover animation */
-/* === Tooltip Hover Effect === */
-.checkbox-card {
-  position: relative;
-}
-
+/* === Tooltip === */
 .tooltip {
   position: absolute;
   bottom: 120%;
@@ -240,7 +141,6 @@ button:disabled {
   transform: translateX(-50%) translateY(-5px);
 }
 
-/* Optional tooltip arrow */
 .tooltip::after {
   content: "";
   position: absolute;
@@ -252,15 +152,13 @@ button:disabled {
   border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
 }
 
-/* Hover visual feedback on card */
+/* === Checkbox Hover & Checked === */
 .checkbox-card:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: scale(1.05);
   border: 2px solid #00eaff;
 }
 
-
-/* When checkbox is checked */
 .checkbox-card input:checked + span {
   color: #00eaff;
   font-weight: 600;
@@ -268,14 +166,64 @@ button:disabled {
   transition: 0.3s;
 }
 
-/* Responsive tweaks */
-@media (max-width: 500px) {
-  .checkbox-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* === Button Styles === */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #00c6ff;
+  color: white;
+  font-size: 1rem;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
+button:hover {
+  background: #1138d6;
+  transform: scale(1.05);
+}
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* === Message Styles === */
+.message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.success-msg {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+
+.error-msg {
+  background-color: rgba(255, 87, 87, 0.2);
+}
+
+/* === Loader Animation === */
+.loader {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+  margin-top: 20px;
+  margin: auto;
+  display: block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .mainlogo {
          /* fixes it at a specific position on screen */
  
@@ -292,3 +240,37 @@ button:disabled {
   border-radius: 8px;         /* optional: smooth corners */
 }
 
+/* === Responsive Styles === */
+@media (max-width: 500px) {
+  .App {
+    max-width: 90vw;
+    padding: 15px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .checkbox-card {
+    width: 100%;
+    max-width: 140px;
+  }
+
+  .mainlogo {
+    margin-left: 0;
+    transform: none;
+    text-align: center;
+  }
+
+  .mainlogo img {
+    width: 80vw;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+}
