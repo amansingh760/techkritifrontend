@@ -81,22 +81,51 @@ function App() {
 // payment handle
 
 const handlePayment = async () => {
-   let amountInPaise = 10000;
+  //  let amountInPaise = 10000;
 
-  if (formData.college === "KGI") {
-    amountInPaise = 10000;
-  } else {
-    amountInPaise = 20000;
-  }
+  // if (formData.college === "KGI") {
+  //   amountInPaise = 10000;
+  // } else {
+  //   amountInPaise = 20000;
+  // }
+  let temp_id = "null";
+  let formLinksText ;
   const options = {
     key: 'rzp_live_Rb9HzbTHGhigs9',
-    amount: amountInPaise, // ₹100 in paise
+    amount: 15000, // ₹100 in paise
     currency: 'INR',
     name: 'Techkriti 2.0',
     description: 'Event Registration Fee',
     handler: async function (response) {
       const paymentId = response.razorpay_payment_id;
       setUTR(paymentId); // Save payment ID as UTR
+
+      const targetEvents = ["Hackathon", "Tech Exhibition", "Startup Expo", "Project Showcase"];
+
+      // const eventFormLinks = {
+      //       "Hackathon": "https://forms.gle/yourHackathonFormLink",
+      //       "Tech Exhibition": "https://forms.gle/GYthnuQYopN7bywW9",
+      //       "Startup Expo": "https://forms.gle/yourStartupExpoFormLink",
+      //       "Project Showcase": "https://forms.gle/yourProjectShowcaseFormLink"
+      //     };
+
+
+        if (formData.events.some(event => targetEvents.includes(event))) {
+          // Do something
+          temp_id = "template_ydjuree";
+          
+          // Filter selected events that have form links
+          // const selectedEventsWithForms = formData.events.find(event => eventFormLinks[event]);
+
+          // // Build the formatted message
+          // formLinksText = selectedEventsWithForms
+          //   .map(event => `${event}: ${eventFormLinks[event]}`)
+          //   .join("\n");
+        }
+        else{
+          temp_id="template_kk8m6od";
+        }
+
 
       // Auto-submit form after payment
       try {
@@ -120,7 +149,7 @@ const handlePayment = async () => {
         setMessage(text);
 
         // Send confirmation email
-        emailjs.send('service_wiq3snm', 'template_lfx22hk', {
+        emailjs.send('service_vl8kxwz',temp_id, {
           to_name: formData.name,
           to_email: formData.email,
           to_year: formData.year,
@@ -129,8 +158,9 @@ const handlePayment = async () => {
           to_collage: formData.college,
           to_events: formData.events,
           to_rid: text.match(/techkriti2\.0-\d{4}/)?.[0],
-          to_utr: paymentId
-        }, 'yCrQiDke2exuE3lzm')
+          to_utr: paymentId,
+          to_form: formLinksText
+        }, 'S-B51AurzarNp9Qq9')
         .then(() => console.log('Confirmation email sent'))
         .catch(err => console.error('EmailJS error:', err));
       } catch (err) {
