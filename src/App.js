@@ -18,6 +18,17 @@ const eventOptions = [
   { name: "Virtual Escape Room", desc: "Solve mysteries and escape before time runs out!" }
 ];
 
+const initialFormData = {
+  name: '',
+  email: '',
+  mobile_number: '',
+  year: '',
+  college: '',
+  department: '',
+  events: [],
+  collegeChoice: ''
+};
+
 function App() {
   const [formData, setFormData] = useState({
     name: '',
@@ -91,7 +102,8 @@ const handlePayment = async () => {
   let temp_id = "null";
   let formLinksText ;
   const options = {
-    key: 'rzp_live_Rb9HzbTHGhigs9',
+    //key: 'rzp_test_R621lPtd7qF7HB', //TEST KEY
+    key: 'rzp_live_Rb9HzbTHGhigs9', //ACTUAL KEY
     amount: 15000, // ₹100 in paise
     currency: 'INR',
     name: 'Techkriti 2.0',
@@ -167,7 +179,10 @@ const handlePayment = async () => {
         setMessage("Error submitting the form. Please try again later.");
       } finally {
         setLoading(false);
-      }
+        setFormData(initialFormData); // ✅ clear form
+        setUTR('');
+        setErrors({});
+            }
     },
     prefill: {
       name: formData.name,
@@ -265,22 +280,35 @@ const handlePayment = async () => {
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <input name="name" placeholder="Full Name" onChange={handleChange} required />
+            <input name="name" placeholder="Full Name" onChange={handleChange} autoComplete="off" required />
             {errors.name && <span className="error">{errors.name}</span>}
           </div>
 
           <div className="input-group">
-          <input name="email" placeholder="Email Address" type="email" onChange={handleChange} required />
+          <input name="email" placeholder="Email Address" type="email" onChange={handleChange} autoComplete="off" required />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
 
           <div className="input-group">
-            <input name="mobile_number" placeholder="Mobile Number" onChange={handleChange} required />
+            <input name="mobile_number" placeholder="Mobile Number" onChange={handleChange} autoComplete="off" required />
             {errors.mobile_number && <span className="error">{errors.mobile_number}</span>}
           </div>
 
           <div className="input-group">
-            <input name="year" placeholder="Year (e.g., 1st, 2nd, 3rd, 4th)" onChange={handleChange} required />
+            <select
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+              autoComplete="off"
+              required
+            >
+              <option >-- Select year--</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              </select>
+            {/* <input name="year" placeholder="Year (e.g., 1st, 2nd, 3rd, 4th)" onChange={handleChange} autoComplete="off" required /> */}
             {errors.year && <span className="error">{errors.year}</span>}
           </div>
 
@@ -367,6 +395,7 @@ const handlePayment = async () => {
               name="department"
               value={formData.department}
               onChange={handleChange}
+              autoComplete="off"
               required
             >
               <option >-- Select Course--</option>
@@ -406,7 +435,7 @@ const handlePayment = async () => {
           {errors.events && <span className="error">{errors.events}</span>}
 
        
-            <button  type="button" /*onClick={handleProceed} */ disabled={loading}>
+            <button  type="button" /*onClick={handleProceed}*/ autoComplete="off" disabled={loading}>
               {loading ? <span className="loader"></span> : "➡️ Proceed"}
             </button>
           

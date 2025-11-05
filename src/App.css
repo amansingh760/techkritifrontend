@@ -200,14 +200,16 @@ button:disabled {
   padding: 12px;
   border-radius: 8px;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .success-msg {
-  background-color: rgba(76, 175, 80, 0.2);
+  background-color: rgb(27, 12, 235);
 }
 
 .error-msg {
-  background-color: rgba(255, 87, 87, 0.2);
+  background-color: rgba(242, 3, 3, 0.992);
 }
 
 /* === Loader Animation === */
