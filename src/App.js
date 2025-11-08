@@ -102,8 +102,8 @@ const handlePayment = async () => {
   let temp_id = "null";
   let formLinksText ;
   const options = {
-    //key: 'rzp_test_R621lPtd7qF7HB', //TEST KEY
-    key: 'rzp_live_Rb9HzbTHGhigs9', //ACTUAL KEY
+    key: 'rzp_test_R621lPtd7qF7HB', //TEST KEY
+    //key: 'rzp_live_Rb9HzbTHGhigs9', //ACTUAL KEY
     amount: 15000, // ₹100 in paise
     currency: 'INR',
     name: 'Techkriti 2.0',
