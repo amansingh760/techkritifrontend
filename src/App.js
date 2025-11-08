@@ -434,7 +434,7 @@ const handlePayment = async () => {
           {errors.events && <span className="error">{errors.events}</span>}
 
        
-            <button  type="button" /*onClick={handleProceed}*/ autoComplete="off" disabled={loading}>
+            <button  type="button" onClick={handleProceed} autoComplete="off" disabled={loading}>
               {loading ? <span className="loader"></span> : "➡️ Proceed"}
             </button>
           
