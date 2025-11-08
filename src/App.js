@@ -450,6 +450,4 @@ const handlePayment = async () => {
       </div>
     </div>
   );
-}
-
-export default App;
+            <button  type="button" onClick={handleProceed} autoComplete="off" disabled={loading}>
