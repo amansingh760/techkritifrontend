@@ -276,6 +276,7 @@ const handlePayment = async () => {
         {/* <img src="logo2.png" alt="Techkriti Logo" className="logo" /> */}
         <div className='mainlogo'><img src="logo2.png" alt="Techkriti Logo" /></div>
         <p className="subtitle">Join the most exciting tech fest of the year!</p>
+          <h3>Registration closed</h3>
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
@@ -432,9 +433,10 @@ const handlePayment = async () => {
             ))}
           </div>
           {errors.events && <span className="error">{errors.events}</span>}
+            
 
        
-            <button  type="button" onClick={handleProceed} autoComplete="off" disabled={loading}>
+            <button  type="button" /*onClick={handleProceed}*/ autoComplete="off" disabled={loading}>
               {loading ? <span className="loader"></span> : "➡️ Proceed"}
             </button>
           
